@@ -61,7 +61,7 @@
   };
 
   function isValidPhone(value) {
-    const digits = value.replace(/\\D/g, "");
+    const digits = value.replace(/\D/g, "");
     return digits.length >= 10 && digits.length <= 15;
   }
 
@@ -116,7 +116,7 @@
 
     const whatsappUrl =
       "https://wa.me/923189150911?text=" +
-      encodeURIComponent(messageLines.join("\\n"));
+      encodeURIComponent(messageLines.join("\n"));
 
     document.getElementById("form-success").classList.add("show");
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");
