@@ -64,3 +64,57 @@ footer,.legal{background:var(--ink);color:var(--cream)}footer{padding:54px 0 22p
  .teacher-card{box-shadow:6px 6px 0 var(--tint)}
 }
 @media(prefers-reduced-motion:reduce){.hero:after{transition:none}}
+
+
+/* Refined, natural Jan Law identity and location section */
+:root{--orange:#B94E32;--orange-deep:#873B2A;--ink:#292722;--ink-soft:#68645B;--cream:#F7F4EC;--sand:#EAE6DC;--white:#FFFEFA;--tint:#F1E4DA;--gold:#C79A4A;--olive:#56614C;--sage:#E5E9DF;--line:#DED8CC;--muted:var(--ink-soft)}
+body{background:var(--cream);color:var(--ink)}
+h1 em{color:var(--orange)}
+.eyebrow,.kicker,.teacher-kicker{color:var(--orange-deep)}
+.btn,.nav-apply{background:var(--orange);border-color:var(--orange)}
+.btn:hover,.nav-apply:hover{background:var(--orange-deep);border-color:var(--orange-deep)}
+.btn-outline:hover{background:var(--sage);border-color:var(--olive)}
+.course-label,.preview-level,.curriculum-cefr,.teacher-credentials span{background:var(--sage);color:var(--olive)}
+.price,.preview-fee{color:var(--orange-deep)}
+.course-card:before{background:var(--olive)}
+.curriculum-card{border-top-color:var(--gold)}
+.admissions{border-top-color:var(--gold)}
+.teacher-photo-wrap:after{background:var(--olive)}
+.teacher-focus{border-left-color:var(--olive);background:var(--sage)}
+.hero:after{display:none}
+.hero-course-preview,.location-card,.location-map-wrap,.teacher-card{box-shadow:none}
+.location{background:#F0EDE5;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.location-grid{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:54px;align-items:stretch}
+.location-copy{display:flex;flex-direction:column;justify-content:center}
+.location-kicker{display:inline-flex;align-items:center;gap:9px;margin-bottom:12px;color:var(--olive);font-size:12px;font-weight:800;letter-spacing:.15em}
+.location-kicker:before{content:"";width:26px;height:2px;background:var(--gold)}
+.location-grid h2{max-width:490px;margin:0 0 14px;font-size:clamp(2.2rem,4vw,3.35rem);line-height:1.04}
+.location-intro{max-width:45ch;margin:0 0 25px;font-size:16px;line-height:1.75}
+.location-card{padding:26px 28px;border:1px solid #DCD5C8;border-radius:10px;background:var(--white)}
+.location-card-top{display:flex;align-items:center;gap:11px;padding-bottom:17px;border-bottom:1px solid var(--line)}
+.location-pin-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--sage);color:var(--olive);font-size:23px;line-height:1}
+.location-card-label{color:var(--olive);font-size:11px;font-weight:800;letter-spacing:.14em}
+.location-card h3{margin:18px 0 8px;font-size:22px;line-height:1.2}
+.location-address{margin:0;color:var(--ink-soft);font-size:15px;line-height:1.7}
+.location-landmarks{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 22px}
+.location-landmarks>div{display:flex;align-items:flex-start;gap:9px;padding:12px;border:1px solid var(--line);border-radius:7px;background:#F8F6F0;color:var(--ink-soft);font-size:13px;line-height:1.4}
+.location-landmarks>div>span:last-child{display:flex;flex-direction:column;gap:2px}
+.location-landmarks strong{color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+.landmark-dot{flex:0 0 8px;width:8px;height:8px;margin-top:5px;border-radius:50%;background:var(--orange)}
+.location-directions{width:100%;min-height:50px;font-size:16px}
+.location-map-wrap{display:flex;flex-direction:column;overflow:hidden;min-width:0;border:1px solid #D8D2C6;border-radius:10px;background:var(--white)}
+.location-map-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:22px 24px;background:var(--olive);color:var(--white)}
+.location-map-heading>div{display:flex;flex-direction:column;gap:6px}
+.location-map-heading .map-label{color:#E6E9DF;font-size:10px;letter-spacing:.16em}
+.location-map-heading strong{font:600 23px/1.2 "Bricolage Grotesque",sans-serif;color:var(--white)}
+.map-heading-mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(255,255,255,.45);border-radius:50%;color:var(--white);font-size:20px}
+.location-map{display:block;width:100%;height:100%;min-height:420px;flex:1;border:0;background:var(--sand)}
+.location-map-foot{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 22px;color:var(--ink-soft);font-size:12px}
+.location-map-foot strong{color:var(--ink)}
+.location-map-foot a{flex-shrink:0;color:var(--orange-deep);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.location-map-foot a:hover{color:var(--olive)}
+.contact-band{background:var(--sage);border-color:#D6DDCF}
+.faq-list{border-top-color:var(--gold)}
+@media(max-width:900px){.location-grid{grid-template-columns:1fr;gap:28px}.location-map{min-height:360px}}
+@media(max-width:700px){.location-grid{gap:24px}.location-card{padding:21px}.location-landmarks{grid-template-columns:1fr 1fr;gap:8px}.location-map-heading{padding:18px}.location-map-heading strong{font-size:20px}.location-map{min-height:310px;height:310px}.location-map-foot{align-items:flex-start;flex-direction:column;padding:15px 18px}}
+@media(max-width:390px){.location-landmarks{grid-template-columns:1fr}}
