@@ -8,7 +8,7 @@ const beforeRoot = "/tmp/jan-law-before";
 const output = path.join(root, "review-screenshots");
 await mkdir(output, { recursive: true });
 
-const sections = ["home", "about", "courses", "curriculum", "instructors", "faq"];
+const sections = ["home", "courses", "curriculum", "admissions", "instructors", "faq"];
 const browser = await chromium.launch({ headless: true });
 
 async function inspectSite(label, siteRoot) {
@@ -20,7 +20,7 @@ async function inspectSite(label, siteRoot) {
   await page.waitForTimeout(250);
   await page.evaluate(() => window.scrollTo(0, 0));
 
-  for (const width of [320, 360, 390, 430, 620, 768, 900, 1024, 1280, 1440, 1600]) {
+  for (const width of [320, 360, 390, 430, 620, 700, 768, 800, 900, 1024, 1280, 1440, 1600]) {
     await page.setViewportSize({ width, height: width <= 620 ? 844 : 960 });
     const overflow = await page.evaluate(() => ({
       viewport: window.innerWidth,
