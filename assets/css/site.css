@@ -2164,13 +2164,7 @@ footer {
 }
 @media(max-width:620px) {
   main p, main li { font-size:16px; }
-  .whatsapp-float {
-    right:14px;
-    bottom:14px;
-    width:52px;
-    height:52px;
-  }
-  .whatsapp-float span { display:none; }
+  .whatsapp-float { display:none; }
   .curriculum details.curriculum-card > summary.curriculum-summary { padding:20px; }
   .curriculum details.curriculum-card > summary.curriculum-summary::after {
     right:20px;
