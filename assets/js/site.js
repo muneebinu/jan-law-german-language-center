@@ -132,6 +132,17 @@
     document.getElementById("field-email").classList.remove("invalid");
   });
 
+  // Keep the floating WhatsApp shortcut away from the admission form.
+  const floatingWhatsApp = document.querySelector(".whatsapp-float");
+  const admissionSection = document.getElementById("admissions");
+  if ("IntersectionObserver" in window && floatingWhatsApp && admissionSection) {
+    const formObserver = new IntersectionObserver(
+      ([entry]) => floatingWhatsApp.classList.toggle("is-hidden", entry.isIntersecting),
+      { threshold: 0.12 }
+    );
+    formObserver.observe(admissionSection);
+  }
+
   // Reveal content as it enters the viewport
   document.documentElement.classList.add("js-ready");
 
