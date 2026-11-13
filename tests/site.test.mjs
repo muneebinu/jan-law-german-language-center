@@ -13,7 +13,7 @@ const notFound = await readFile(path.join(root, "404.html"), "utf8");
 test("homepage has essential document metadata", () => {
   assert.match(html, /^<!doctype html>/i);
   assert.match(html, /<html lang="en">/i);
-  assert.match(html, /<title>[^<]+<\/title>/i);
+  assert.match(html, /<title>\s*[^<]+\s*<\/title>/i);
   assert.match(html, /<meta name="description" content="[^"]+"/i);
   assert.match(html, /<link rel="canonical" href="https:\/\//i);
 });
@@ -33,7 +33,8 @@ test("styles and application JavaScript are kept outside the HTML", () => {
 });
 
 test("all local HTML assets resolve to files in the repository", () => {
-  const references = [...html.matchAll(/(?:src|href)="([^"]+)"/gi)]
+  const references = [html, notFound]
+    .flatMap((document) => [...document.matchAll(/(?:src|href)="([^"]+)"/gi)])
     .map((match) => match[1])
     .filter((value) => !/^(?:[a-z][a-z0-9+.-]*:|\/\/|#)/i.test(value));
 
@@ -70,9 +71,14 @@ test("published course prices are consistent", () => {
     assert.ok(html.includes(`German ${level}`), `Missing ${level} course content`);
     assert.ok(html.includes(`PKR ${fee}`), `Missing visible ${level} fee`);
   }
-  assert.match(html, /"price":"35000"/);
-  assert.match(html, /"price":"40000"/);
-  assert.match(html, /"price":"50000"/);
+  const organization = JSON.parse(
+    [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)][0][1]
+  );
+  const offers = organization.hasOfferCatalog.itemListElement;
+  assert.deepEqual(
+    offers.map((offer) => offer.price),
+    ["35000", "40000", "50000"]
+  );
 });
 
 test("contact links include the confirmed office and instructor WhatsApp numbers", () => {
