@@ -1709,3 +1709,56 @@ footer {
     transform:none
   }
 }
+
+/* Accessible not-found page */
+.not-found-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px 20px;
+}
+.not-found-content {
+  width: min(100%, 560px);
+  padding: clamp(28px, 6vw, 56px);
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.not-found-code {
+  margin: 0;
+  color: var(--orange);
+  font: 800 clamp(72px, 16vw, 112px)/1 "Manrope", sans-serif;
+  letter-spacing: -.07em;
+}
+.not-found-content h1 {
+  margin: 18px 0 8px;
+  color: var(--navy);
+  font: 700 clamp(24px, 5vw, 32px)/1.2 "Manrope", sans-serif;
+}
+.not-found-content p {
+  margin: 0 0 26px;
+  color: var(--muted);
+}
+.not-found-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease;
+}
+.not-found-home:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+.not-found-home:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 4px;
+}
