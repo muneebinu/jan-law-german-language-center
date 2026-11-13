@@ -116,3 +116,36 @@ test("homepage has no dead in-page navigation targets or removed filler sections
   assert.doesNotMatch(html, /id="why"|id="pathway"|class="section experiences"/);
   assert.doesNotMatch(html, /is presented as|Certificate arrangements have not been confirmed|German proficiency is stated as/);
 });
+
+
+test("visitor-facing copy avoids internal notes and repeated marketing filler", () => {
+  assert.doesNotMatch(html, /supplied by Jan Law|is presented as|Certificate arrangements have not been confirmed|German proficiency is stated as/i);
+  assert.doesNotMatch(html, /Your Journey to Germany|A Clear Path|Every language journey/i);
+  assert.doesNotMatch(html, /class="quick-strip"|class="hero-proof"/);
+  assert.match(html, /Contact the center for the current weekly timetable/);
+});
+
+test("FAQ content is concise and matches its structured data", () => {
+  const faqStart = html.indexOf('<section class="section faq"');
+  const faqEnd = html.indexOf("</section>", faqStart);
+  const faqSection = html.slice(faqStart, faqEnd);
+  const visibleQuestions = [...faqSection.matchAll(/<summary>([\\s\\S]*?)<\\/summary>/g)]
+    .map((match) => match[1].replace(/<[^>]+>/g, "").replace(/\\s+/g, " ").trim());
+  assert.equal(visibleQuestions.length, 4);
+  assert.ok(visibleQuestions.includes("Do I need previous German knowledge to join A1?"));
+  assert.ok(visibleQuestions.includes("Where is the center located?"));
+  assert.ok(visibleQuestions.includes("Are classes held in person?"));
+  assert.ok(visibleQuestions.includes("How can I enrol?"));
+  const faqData = JSON.parse(
+    [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/gi)]
+      .map((match) => match[1])
+      .find((block) => block.includes('"FAQPage"'))
+  );
+  assert.equal(faqData.mainEntity.length, visibleQuestions.length);
+});
+
+test("privacy copy explains the WhatsApp handoff in visitor language", () => {
+  assert.match(html, /Your details are not saved on this website/);
+  assert.match(html, /press Send in WhatsApp/);
+  assert.doesNotMatch(html, /does not submit or store admissions forms in a database/i);
+});
