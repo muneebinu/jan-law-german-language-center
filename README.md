@@ -73,6 +73,7 @@ The site is intentionally framework-free. It uses browser-native capabilities an
 │   │   └── site.js           # Navigation, form and page interactions
 │   ├── favicon.svg
 │   ├── JAN LAW Education Logo.png  # Primary website logo and favicon
+│   ├── muneeb.jpg                   # Self-hosted instructor profile photo
 │   ├── jan-law-logo.svg             # Legacy vector mark
 │   ├── jan-law-original-logo.b64    # Legacy logo asset
 │   └── og-image.svg
