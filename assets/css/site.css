@@ -27,3 +27,40 @@ footer,.legal{background:var(--ink);color:var(--cream)}footer{padding:54px 0 22p
 @media(max-width:700px){body{padding-bottom:68px}.wrap{width:calc(100% - 36px)}header{height:74px}.navlinks{top:74px}.brand img{width:116px;height:64px}.hero{padding:58px 0 56px}.hero-grid,.about-grid,.location-grid{grid-template-columns:1fr}.hero-grid{gap:32px}.hero-lead{font-size:17px}.hero-actions{display:grid;grid-template-columns:1fr}.hero-actions .btn{width:100%}.hero-course-preview{width:100%;padding:20px}.preview-course{grid-template-columns:38px minmax(0,1fr) auto;gap:10px;padding:15px 0}.preview-level{width:36px;height:36px}.preview-detail strong{font-size:14px}.preview-detail small{font-size:12px}.preview-fee{font-size:20px}.word-week{grid-template-columns:1fr 1fr;gap:10px 16px;padding:18px;margin-top:26px}.word-week:before{display:none}.word-week-label{grid-column:1/-1}.word-week-word{grid-column:1;font-size:28px}.word-week-meanings{grid-column:2;gap:8px;font-size:13px}.word-week p{grid-column:1/-1;font-size:14px}.course-grid{grid-template-columns:1fr}.course-card:last-child{grid-column:auto;width:auto}.course-card{padding:24px}.course-card>p{min-height:0}.curriculum-grid{grid-template-columns:1fr}.curriculum-skill-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.curriculum-skill-list>div{padding:13px 8px}.curriculum-skill-list strong{font-size:28px}.admission-panel{padding:0}.form-grid{grid-template-columns:1fr}.field.full,.form-submit{grid-column:1}.form-submit .btn{width:100%}.teacher-card{grid-template-columns:1fr;padding:18px;gap:25px}.teacher-photo-wrap{width:100%;max-width:420px;margin:0 auto;aspect-ratio:4/5}.teacher-photo{aspect-ratio:4/5}.teacher-copy h3{font-size:2rem}.teacher-actions{align-items:flex-start;flex-direction:column;gap:12px}.faq-list details{padding:17px 12px}.contact-inner{display:block}.contact-actions{display:grid;grid-template-columns:1fr;margin-top:20px}.contact-actions .btn{width:100%}.footer-grid{grid-template-columns:1fr 1fr;gap:24px 18px}.footer-about,.footer-col:last-child{grid-column:1/-1}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:8px}.whatsapp-float{right:12px;bottom:12px;min-height:48px;padding:0 14px}.whatsapp-float span{font-size:13px}.legal details{padding:0 18px}}
 @media(max-width:390px){.wrap{width:calc(100% - 30px)}.preview-course{grid-template-columns:34px minmax(0,1fr)}.preview-level{width:34px;height:34px}.preview-fee{grid-column:2;justify-self:start;margin-top:0}.word-week{grid-template-columns:1fr}.word-week-word,.word-week-meanings{grid-column:1}.curriculum-summary{padding:19px}.curriculum-detail{padding:0 19px 20px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js-ready .reveal{opacity:1;transform:none}}
+
+
+/* Visual depth and location map refinement */
+.hero{position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--sand)}
+.hero:after{content:"";position:absolute;z-index:-1;right:-105px;top:-125px;width:360px;height:360px;border:48px solid var(--tint);border-radius:50%;opacity:.8}
+.hero-course-preview{border-top:5px solid var(--orange);box-shadow:10px 10px 0 var(--tint)}
+.section-head h2,.location-grid h2{position:relative}
+.section-head h2:after{content:"";display:block;width:54px;height:4px;margin:15px auto 0;background:var(--gold);border-radius:3px}
+.section-head:not(.center) h2:after{margin-left:0}
+.courses{border-top:1px solid #D9D4C9;border-bottom:1px solid #D9D4C9}
+.course-card{box-shadow:0 5px 0 rgba(31,26,23,.035)}
+.curriculum-card{border-top:3px solid var(--gold)}
+.location{border-top:1px solid #D9D4C9}
+.location-card{border-left:5px solid var(--orange);box-shadow:8px 8px 0 rgba(228,61,18,.10)}
+.location-map-wrap{overflow:hidden;min-width:0;border:1px solid #D9D4C9;border-radius:14px;background:var(--white);box-shadow:10px 10px 0 var(--tint)}
+.location-map-heading{display:flex;flex-direction:column;gap:5px;padding:18px 22px;background:var(--ink);color:var(--cream)}
+.location-map-heading .map-label{color:#F6F2EA}
+.location-map-heading strong{font:700 22px/1.2 "Bricolage Grotesque",sans-serif}
+.location-map{display:block;width:100%;height:390px;border:0;background:var(--sand)}
+.location-map-foot{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:16px 20px;color:var(--ink-soft);font-size:13px}
+.location-map-foot a{flex-shrink:0;color:var(--orange-deep);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.location-map-foot a:hover{color:var(--orange)}
+.admissions{position:relative}
+.admission-aside{padding:24px;border-left:4px solid var(--gold);background:rgba(255,255,255,.045);border-radius:0 10px 10px 0}
+.teacher-card{box-shadow:10px 10px 0 var(--tint)}
+.faq-list{border-top:3px solid var(--gold)}
+.contact-band{border-top:1px solid #D9D4C9;border-bottom:1px solid #D9D4C9}
+@media(max-width:700px){
+ .hero:after{right:-205px;top:-160px;width:300px;height:300px;border-width:38px}
+ .hero-course-preview{box-shadow:6px 6px 0 var(--tint)}
+ .location-map{height:320px}
+ .location-map-foot{align-items:flex-start;flex-direction:column;gap:8px}
+ .location-map-wrap{box-shadow:6px 6px 0 var(--tint)}
+ .admission-aside{padding:18px}
+ .teacher-card{box-shadow:6px 6px 0 var(--tint)}
+}
+@media(prefers-reduced-motion:reduce){.hero:after{transition:none}}
