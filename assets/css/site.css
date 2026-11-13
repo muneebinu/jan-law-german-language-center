@@ -118,3 +118,201 @@ h1 em{color:var(--orange)}
 @media(max-width:900px){.location-grid{grid-template-columns:1fr;gap:28px}.location-map{min-height:360px}}
 @media(max-width:700px){.location-grid{gap:24px}.location-card{padding:21px}.location-landmarks{grid-template-columns:1fr 1fr;gap:8px}.location-map-heading{padding:18px}.location-map-heading strong{font-size:20px}.location-map{min-height:310px;height:310px}.location-map-foot{align-items:flex-start;flex-direction:column;padding:15px 18px}}
 @media(max-width:390px){.location-landmarks{grid-template-columns:1fr}}
+
+
+/* JAN LAW — clean, precise visual refresh */
+:root{
+  --orange:#E43D12;
+  --orange-deep:#B52E0B;
+  --ink:#171717;
+  --ink-soft:#626262;
+  --cream:#FFFFFF;
+  --sand:#F4F4F2;
+  --white:#FFFFFF;
+  --tint:#FFF0EB;
+  --gold:#E9A18D;
+  --olive:#343434;
+  --sage:#F1F1EF;
+  --line:#E5E5E2;
+  --muted:#777777;
+  --radius:6px;
+}
+body{background:#fff;color:#171717}
+header{background:rgba(255,255,255,.97);border-bottom:1px solid #E8E8E6}
+h1,h2,h3,h4{color:#171717}
+h1{letter-spacing:-.055em}
+h1 em{color:var(--orange)}
+h2{letter-spacing:-.045em}
+p{color:#626262}
+.eyebrow,.kicker,.teacher-kicker,.location-kicker{color:var(--orange)}
+.eyebrow:before,.kicker:before,.location-kicker:before{background:var(--orange)}
+.section{padding-top:88px;padding-bottom:88px}
+.section-head h2:after,.section-head:not(.center) h2:after{display:none}
+.btn,.nav-apply,.not-found-home{
+  min-height:48px;padding:13px 20px;border:1px solid var(--orange);
+  border-radius:4px;background:var(--orange);color:#fff;
+  font-size:15px;font-weight:700;letter-spacing:-.01em;
+  box-shadow:none;transform:none;transition:background .16s,border-color .16s,color .16s,transform .16s
+}
+.btn:hover,.nav-apply:hover,.not-found-home:hover{
+  background:#171717;border-color:#171717;color:#fff;transform:translateY(-1px)
+}
+.btn-outline,.btn-green,.btn-dark,.btn-green:hover,.btn-outline:hover{
+  background:transparent;border:1px solid #171717;color:#171717
+}
+.btn-outline:hover,.btn-green:hover{background:#171717;color:#fff;border-color:#171717}
+.btn-dark{background:#171717;color:#fff;border-color:#171717}
+.btn-dark:hover{background:var(--orange);border-color:var(--orange)}
+.btn-small{font-size:14px;min-height:44px}
+.navlinks{gap:22px}
+.navlinks>a:not(.nav-apply){font-size:13px;font-weight:600}
+.navlinks>a:not(.nav-apply):hover{color:var(--orange);text-decoration:none}
+.nav-apply{min-height:42px;padding:10px 17px}
+.menu-toggle{border-radius:4px;border-color:#E5E5E2;background:#fff}
+.hero{
+  background:#fff;color:#171717;border-bottom:1px solid #E8E8E6;
+  padding-top:82px;padding-bottom:82px
+}
+.hero-grid{gap:64px}
+.hero h1{max-width:660px;font-size:clamp(2.7rem,5.4vw,5rem);line-height:.99}
+.hero-lead{max-width:58ch;color:#626262;font-size:17px}
+.hero-location{color:#777;font-size:13px}
+.hero-actions{gap:10px}
+.hero-actions .btn-green{border-color:#D8D8D5;color:#333}
+.hero-actions .btn-green:hover{background:#171717;color:#fff;border-color:#171717}
+.hero-course-preview{
+  border:1px solid #E5E5E2;border-top:3px solid var(--orange);
+  border-radius:6px;background:#fff;padding:26px;box-shadow:0 12px 34px rgba(0,0,0,.045)
+}
+.preview-heading{border-bottom:1px solid #EAEAE8;color:#777}
+.preview-heading span:last-child{color:var(--orange)}
+.preview-course{border-bottom:1px solid #EEEEEC}
+.preview-level{background:#FFF0EB;color:var(--orange);border-radius:4px}
+.preview-detail strong{color:#171717}
+.preview-detail small{color:#777}
+.preview-fee{color:var(--orange)}
+.preview-link{color:var(--orange);font-size:13px}
+.word-week{background:#F7F7F5;border:1px solid #E8E8E6;border-left:3px solid var(--orange);border-radius:4px}
+.word-week-label{color:var(--orange)}
+.word-week-word{color:#171717}
+.word-week-meanings{color:#626262}
+.word-week-meanings b{color:#171717}
+#about{background:#fff}
+.about-contact{border:1px solid #E5E5E2;border-radius:5px;background:#fff}
+.about-contact>a{border-color:#EEEEEC}
+.about-contact>a:hover{color:var(--orange)}
+.courses{background:#F5F5F3;border-top:1px solid #E8E8E6;border-bottom:1px solid #E8E8E6}
+.course-grid{gap:16px}
+.course-card{
+  border:1px solid #E2E2DF;border-radius:5px;background:#fff;
+  padding:26px;box-shadow:none;transition:border-color .18s,transform .18s
+}
+.course-card:before{height:3px;background:var(--orange)}
+.course-card:hover{transform:translateY(-3px);border-color:#BEBEBA}
+.course-card.featured{background:#fff;border-color:#E2E2DF}
+.course-card h3{color:#171717}
+.course-card>p{color:#626262}
+.course-label{background:#FFF0EB;color:var(--orange);border-radius:3px;font-size:10px}
+.price,.preview-fee{color:var(--orange)}
+.price small,.duration{color:#777}
+.duration{border-color:#EAEAE8}
+.outcomes strong{color:#171717}
+.outcomes ul{color:#626262}
+.fee-footnote{background:#fff;border:1px solid #E5E5E2;border-radius:4px;color:#626262}
+.curriculum{background:#fff}
+.curriculum-card{border:1px solid #E5E5E2;border-top:2px solid #171717;border-radius:5px;background:#fff}
+.curriculum-summary{min-height:95px}
+.curriculum-summary:after{color:var(--orange)}
+.curriculum-card[open] .curriculum-summary{border-bottom:2px solid var(--orange)}
+.curriculum-summary-title{color:#171717}
+.curriculum-cefr{background:#F2F2F0;color:#555;border-radius:3px}
+.curriculum-summary small,.curriculum-block ul,.curriculum-practice p{color:#626262}
+.curriculum-block,.curriculum-result{border-color:#EAEAE8}
+.curriculum-practice{background:#F5F5F3;border-radius:4px}
+.curriculum-skills{background:#171717;border:0;border-radius:5px}
+.curriculum-skills-label{color:#BDBDBD}
+.curriculum-skills-label:before{color:var(--orange)}
+.curriculum-skill-list>div{border-top:2px solid var(--orange)}
+.curriculum-skill-list strong,.curriculum-skill-list span{color:#fff}
+.skills-note{color:#777}
+.admissions{background:#171717;border-top:3px solid var(--orange)}
+.admission-aside{border-left:2px solid var(--orange);border-radius:0;background:transparent}
+.admission-aside h2{color:#fff}
+.admission-aside p,.form-note,.field label,.field .hint{color:#C8C8C8}
+.contact-chip{border:1px solid #777;border-radius:4px;color:#fff}
+.contact-chip:hover{background:#fff;color:#171717}
+.field input,.field select,.field textarea{border:1px solid #555;border-radius:4px;background:#fff;color:#171717}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);outline:2px solid rgba(228,61,18,.2);background:#fff}
+.form-submit .btn{border-color:var(--orange)}
+.success-box{border:1px solid #555;border-radius:4px;background:#242424}
+.instructors{background:#fff}
+.teacher-card{border:1px solid #E5E5E2;border-radius:5px;background:#fff;box-shadow:none}
+.teacher-photo-wrap{background:#F0F0EE;border-radius:4px}
+.teacher-photo-wrap:after{background:var(--orange);border-radius:2px}
+.teacher-photo{border-radius:4px}
+.teacher-photo-caption{border-radius:3px;background:#171717}
+.teacher-credentials span{background:#F4F4F2;border-radius:3px;color:#171717}
+.teacher-credentials b{color:#777}
+.teacher-focus{border-left:2px solid var(--orange);background:#F5F5F3;border-radius:0}
+.teacher-focus strong{color:#171717}
+.teacher-focus ul{color:#626262}
+.teacher-link{color:var(--orange)}
+.faq{background:#F5F5F3}
+.faq-list{border-top:1px solid #DADAD7}
+.faq-list details{border-bottom:1px solid #DADAD7}
+.faq-list details[open]{background:#fff}
+.faq-list summary{color:#171717}
+.faq-list summary:after{color:var(--orange)}
+.faq-list details p{color:#626262}
+.location{background:#fff;border-top:1px solid #E8E8E6;border-bottom:1px solid #E8E8E6}
+.location-grid{gap:38px}
+.location-kicker{color:var(--orange)}
+.location-card{border:1px solid #E5E5E2;border-radius:5px;background:#fff;box-shadow:none}
+.location-pin-mark{background:#FFF0EB;color:var(--orange);border-radius:4px}
+.location-card-label{color:var(--orange)}
+.location-landmarks>div{background:#F7F7F5;border:1px solid #EAEAE8;border-radius:3px;color:#626262}
+.location-landmarks strong{color:#171717}
+.landmark-dot{background:var(--orange)}
+.location-map-wrap{border:1px solid #E5E5E2;border-radius:5px;background:#fff;box-shadow:none}
+.location-map-heading{background:#171717;color:#fff}
+.location-map-heading .map-label{color:#BDBDBD}
+.location-map-heading strong{color:#fff}
+.map-heading-mark{border-color:#555;color:#fff}
+.location-map-foot{color:#777}
+.location-map-foot strong{color:#171717}
+.location-map-foot a{color:var(--orange)}
+.contact-band{background:#F5F5F3;border-top:1px solid #E8E8E6;border-bottom:1px solid #E8E8E6}
+.contact-inner h2{color:#171717}
+.contact-inner p{color:#626262}
+.contact-actions .btn-outline{border-color:#171717;color:#171717}
+.contact-actions .btn-outline:hover{background:#171717;color:#fff}
+footer,.legal{background:#171717;color:#fff}
+.footer-logo{background:#fff;border-radius:3px}
+.footer-col h3,.footer-about p,.footer-col a,.footer-col p,.footer-bottom,.legal summary,.legal p{color:#C8C8C8}
+.footer-col a:hover{color:#fff;text-decoration-color:var(--orange)}
+.footer-bottom{border-top:1px solid #444}
+.legal{border-top:1px solid #444}
+.whatsapp-float{background:#171717;border:1px solid #fff;border-radius:4px;box-shadow:0 5px 20px rgba(0,0,0,.16)}
+.whatsapp-float:hover{background:var(--orange);transform:translateY(-2px)}
+.not-found-content{border:1px solid #E5E5E2;border-radius:5px;box-shadow:none}
+.not-found-code{color:var(--orange)}
+.not-found-home{border-radius:4px}
+a:not(.btn):not(.nav-apply):not(.brand):not(.whatsapp-float):hover{text-decoration-color:var(--orange)}
+:focus-visible{outline-color:var(--orange)}
+@media(max-width:900px){
+  .hero-grid{gap:32px}
+  .section{padding-top:72px;padding-bottom:72px}
+}
+@media(max-width:700px){
+  .hero{padding-top:58px;padding-bottom:56px}
+  .hero-grid{gap:30px}
+  .hero h1{font-size:clamp(2.65rem,12vw,4rem)}
+  .hero-course-preview{box-shadow:0 8px 24px rgba(0,0,0,.045)}
+  .course-card{padding:23px}
+  .teacher-card{box-shadow:none}
+  .location-map-heading{background:#171717}
+  .whatsapp-float{background:#171717}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn,.nav-apply,.course-card,.whatsapp-float{transition:none}
+}
