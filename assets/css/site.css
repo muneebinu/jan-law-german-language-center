@@ -326,3 +326,40 @@ a:not(.btn):not(.nav-apply):not(.brand):not(.whatsapp-float):hover{text-decorati
 .preview-fee{display:flex;flex-direction:column;align-items:flex-end;gap:3px}
 .preview-fee del{font-size:12px;color:#888;font-weight:600}
 .preview-fee small{font-size:10px;color:#777}
+
+
+/* Clear first-batch offer messaging */
+.first-batch-callout{
+  display:flex;flex-direction:column;gap:5px;max-width:570px;
+  margin:22px 0 24px;padding:15px 18px;
+  border:1px solid #F0B6A4;border-left:4px solid var(--orange);
+  border-radius:4px;background:#FFF5F1
+}
+.first-batch-callout strong{
+  color:var(--orange);font-size:12px;font-weight:800;
+  letter-spacing:.09em
+}
+.first-batch-callout span{
+  color:#343434;font-size:14px;line-height:1.55;font-weight:600
+}
+.first-batch-note{
+  display:flex;flex-direction:column;gap:6px;
+  margin:20px 0;padding:16px 17px;
+  border:1px solid #555;border-left:3px solid var(--orange);
+  background:#242424
+}
+.first-batch-note strong{
+  color:#fff;font-size:13px;font-weight:800;letter-spacing:.04em
+}
+.first-batch-note span{
+  color:#D1D1D1;font-size:13px;line-height:1.6
+}
+.price small{
+  color:var(--orange);font-size:11px;font-weight:800;
+  letter-spacing:.045em
+}
+@media(max-width:700px){
+  .first-batch-callout{margin:18px 0 20px;padding:13px 14px}
+  .first-batch-callout span{font-size:13px}
+  .first-batch-note{margin:16px 0;padding:14px}
+}
