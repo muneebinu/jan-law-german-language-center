@@ -22,7 +22,13 @@ test("styles and application JavaScript are kept outside the HTML", () => {
   assert.match(html, /src="assets\/js\/site\.js" defer/);
   assert.doesNotMatch(html, /<style\b/i);
   assert.doesNotMatch(html, /\sstyle=/i);
-  assert.doesNotMatch(html, /<script(?![^>]*application\/ld\+json)[^>]*>\s*(?!<\/script>)/i);
+  const scriptTags = [...html.matchAll(/<script\\b([^>]*)>/gi)];
+  const applicationScripts = scriptTags.filter(
+    (match) => !/application\\/ld\\+json/i.test(match[1])
+  );
+  assert.equal(applicationScripts.length, 1, "Expected one external application script");
+  assert.match(applicationScripts[0][1], /src="assets\\/js\\/site\\.js"/);
+  assert.match(applicationScripts[0][1], /defer/);
 });
 
 test("all local HTML assets resolve to files in the repository", () => {
