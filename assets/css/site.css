@@ -1982,3 +1982,117 @@ footer {
     gap:15px
   }
 }
+
+
+/* StageShow-inspired course overview: real information, clear hierarchy */
+.hero-course-preview {
+  width:min(100%,460px);
+  justify-self:center;
+  padding:26px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:22px;
+  background:#fff8ee;
+  color:#172c46;
+  box-shadow:0 28px 70px rgba(5,18,31,.24);
+}
+.preview-heading {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding-bottom:18px;
+  border-bottom:1px solid #e6ded2;
+  color:#65717d;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+.preview-heading span:last-child {
+  color:#b95722;
+  text-align:right;
+}
+.preview-course {
+  display:grid;
+  grid-template-columns:42px minmax(0,1fr) auto;
+  align-items:center;
+  gap:13px;
+  padding:19px 0;
+  border-bottom:1px solid #e6ded2;
+}
+.preview-level {
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  background:#172c46;
+  color:#fff;
+  font-size:13px;
+  font-weight:800;
+}
+.preview-detail {
+  display:flex;
+  min-width:0;
+  flex-direction:column;
+  gap:5px;
+}
+.preview-detail strong {
+  color:#172c46;
+  font-size:13px;
+}
+.preview-detail small {
+  color:#6b747d;
+  font-size:10px;
+  line-height:1.4;
+}
+.preview-fee {
+  display:flex;
+  align-items:baseline;
+  gap:4px;
+  white-space:nowrap;
+  color:#172c46;
+  font-size:15px;
+  font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.preview-fee small {
+  color:#6b747d;
+  font-size:9px;
+  font-weight:700;
+}
+.preview-link {
+  display:inline-flex;
+  margin-top:18px;
+  color:#b95722;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+}
+.preview-link:hover {
+  text-decoration:underline;
+}
+@media(max-width:620px) {
+  .hero-course-preview {
+    width:100%;
+    padding:20px;
+    border-radius:18px;
+  }
+  .preview-course {
+    grid-template-columns:38px minmax(0,1fr) auto;
+    gap:10px;
+    padding:16px 0;
+  }
+  .preview-level {
+    width:36px;
+    height:36px;
+  }
+  .preview-detail strong {
+    font-size:12px;
+  }
+  .preview-detail small {
+    font-size:9px;
+  }
+  .preview-fee {
+    font-size:13px;
+  }
+}
