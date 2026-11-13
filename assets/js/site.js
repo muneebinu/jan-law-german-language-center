@@ -10,7 +10,7 @@
     navigation.classList.remove("open");
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.setAttribute("aria-label", "Open navigation menu");
-    menuButton.textContent = "☰";
+    menuButton.classList.remove("is-open");
     body.classList.remove("menu-open");
   }
 
@@ -23,7 +23,7 @@
       "aria-label",
       isOpening ? "Close navigation menu" : "Open navigation menu"
     );
-    menuButton.textContent = isOpening ? "×" : "☰";
+    menuButton.classList.toggle("is-open", isOpening);
     body.classList.toggle("menu-open", isOpening);
   });
 
