@@ -132,26 +132,6 @@
     document.getElementById("field-email").classList.remove("invalid");
   });
 
-  // Load the original transparent logo asset
-  fetch("assets/jan-law-original-logo.b64")
-    .then((response) => {
-      if (!response.ok) throw new Error("Logo asset unavailable");
-      return response.text();
-    })
-    .then((encodedLogo) => {
-      const logoSource = "data:image/png;base64," + encodedLogo.trim();
-
-      document.querySelectorAll("#brand-logo, .footer-logo").forEach((logo) => {
-        logo.src = logoSource;
-        logo.style.visibility = "visible";
-      });
-    })
-    .catch(() => {
-      document.querySelectorAll("#brand-logo, .footer-logo").forEach((logo) => {
-        logo.style.display = "none";
-      });
-    });
-
   // Reveal content as it enters the viewport
   document.documentElement.classList.add("js-ready");
 
