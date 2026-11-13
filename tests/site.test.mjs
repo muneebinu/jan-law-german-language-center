@@ -156,9 +156,9 @@ test("light cleanup preserves the existing design while simplifying content", ()
   assert.equal((html.match(/Enquire on WhatsApp/g) || []).length, 3);
   assert.doesNotMatch(html, /Apply for A1|Apply for A2|Apply for B1/);
   assert.doesNotMatch(html, /about-panel|>GERMAN</);
-  assert.match(html, /German level:<\\/b> B2/);
-  assert.match(html, /Fees and durations are confirmed with the center/);
+  assert.ok(html.includes("German level:</b> B2"));
+  assert.ok(html.includes("Fees and durations are confirmed with the center"));
   assert.doesNotMatch(html, /Goethe-Institut|ÖSD|Certificate arrangements have not been confirmed|is presented as an official/);
-  assert.match(html, /src="assets\\/muneeb\\.jpg"/);
-  assert.doesNotMatch(html, /Fluentio-Academia\\/assets\\/muneeb\\.jpg|☰|↗|⌖|▤|✎/);
+  assert.ok(html.includes('src="assets/muneeb.jpg"'));
+  assert.doesNotMatch(html, /Fluentio-Academia|☰|↗|⌖|▤|✎/);
 });
