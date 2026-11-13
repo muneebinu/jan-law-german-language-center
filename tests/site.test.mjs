@@ -129,15 +129,15 @@ test("FAQ content is concise and matches its structured data", () => {
   const faqStart = html.indexOf('<section class="section faq"');
   const faqEnd = html.indexOf("</section>", faqStart);
   const faqSection = html.slice(faqStart, faqEnd);
-  const visibleQuestions = [...faqSection.matchAll(/<summary>([\\s\\S]*?)<\\/summary>/g)]
-    .map((match) => match[1].replace(/<[^>]+>/g, "").replace(/\\s+/g, " ").trim());
+  const visibleQuestions = [...faqSection.matchAll(/<summary>([\s\S]*?)<\/summary>/g)]
+    .map((match) => match[1].replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim());
   assert.equal(visibleQuestions.length, 4);
   assert.ok(visibleQuestions.includes("Do I need previous German knowledge to join A1?"));
   assert.ok(visibleQuestions.includes("Where is the center located?"));
   assert.ok(visibleQuestions.includes("Are classes held in person?"));
   assert.ok(visibleQuestions.includes("How can I enrol?"));
   const faqData = JSON.parse(
-    [...html.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/gi)]
+    [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)]
       .map((match) => match[1])
       .find((block) => block.includes('"FAQPage"'))
   );
