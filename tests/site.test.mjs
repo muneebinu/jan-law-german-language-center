@@ -8,6 +8,7 @@ const root = process.cwd();
 const html = await readFile(path.join(root, "index.html"), "utf8");
 const css = await readFile(path.join(root, "assets/css/site.css"), "utf8");
 const js = await readFile(path.join(root, "assets/js/site.js"), "utf8");
+const notFound = await readFile(path.join(root, "404.html"), "utf8");
 
 test("homepage has essential document metadata", () => {
   assert.match(html, /^<!doctype html>/i);
@@ -45,6 +46,14 @@ test("all local HTML assets resolve to files in the repository", () => {
     );
     assert.ok(existsSync(resolved), `Missing local asset: ${reference}`);
   }
+});
+
+test("custom not-found page uses the shared design stylesheet", () => {
+  assert.match(notFound, /<meta name="robots" content="noindex">/);
+  assert.match(notFound, /href="assets\/css\/site\.css"/);
+  assert.match(notFound, /class="not-found-page"/);
+  assert.match(css, /\.not-found-page/);
+  assert.doesNotMatch(notFound, /\sstyle=/i);
 });
 
 test("embedded JSON-LD is valid JSON", () => {
