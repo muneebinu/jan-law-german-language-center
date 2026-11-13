@@ -2039,3 +2039,102 @@ footer {
     font-size:13px;
   }
 }
+
+
+/* Small, targeted cleanup: native curriculum accordions and mobile readability */
+.curriculum-card {
+  padding: 0;
+  overflow: hidden;
+}
+.curriculum-summary {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1fr) auto;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 88px;
+  padding: 22px 24px;
+  cursor: pointer;
+  list-style: none;
+}
+.curriculum-summary::-webkit-details-marker { display:none; }
+.curriculum-summary::after {
+  content: "+";
+  position: absolute;
+  right: 24px;
+  bottom: 15px;
+  color: var(--orange);
+  font-size: 20px;
+  font-weight: 700;
+}
+.curriculum-card[open] .curriculum-summary::after { content: "−"; }
+.curriculum-summary-title {
+  color: var(--navy);
+  font-family: Manrope,sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+}
+.curriculum-summary .curriculum-cefr {
+  grid-column: 2;
+  grid-row: 1;
+}
+.curriculum-summary small {
+  grid-column: 1 / -1;
+  max-width: 95%;
+  padding-right: 20px;
+  color: #59636e;
+  font-size: 13px;
+  line-height: 1.55;
+}
+.curriculum-detail { padding: 0 24px 24px; }
+.curriculum-detail .curriculum-intro { display:none; }
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+  display:block;
+  width:22px;
+  height:2px;
+  border-radius:2px;
+  background:currentColor;
+}
+.menu-icon { position:relative; }
+.menu-icon::before,
+.menu-icon::after {
+  position:absolute;
+  left:0;
+  content:"";
+}
+.menu-icon::before { top:-7px; }
+.menu-icon::after { top:7px; }
+.menu-toggle.is-open .menu-icon { background:transparent; }
+.menu-toggle.is-open .menu-icon::before { top:0; transform:rotate(45deg); }
+.menu-toggle.is-open .menu-icon::after { top:0; transform:rotate(-45deg); }
+@media (max-width: 620px) {
+  .preview-course {
+    grid-template-columns: 38px minmax(0,1fr);
+  }
+  .preview-fee {
+    grid-column: 2;
+    justify-self: start;
+    margin-top: 2px;
+    font-size: 16px;
+  }
+  .preview-fee small { font-size: 12px; }
+  .price small,
+  .duration,
+  .outcomes > strong,
+  .curriculum-level,
+  .curriculum-block ul,
+  .curriculum-practice p,
+  .curriculum-result span,
+  .form-note {
+    color: #4f5963;
+    font-size: 16px;
+  }
+  .curriculum-summary { padding: 20px; }
+  .curriculum-summary-title { font-size: 19px; }
+  .curriculum-summary small { font-size: 16px; }
+  .curriculum-detail { padding: 0 20px 20px; }
+  .btn, .nav-apply, .contact-chip { min-height:48px; }
+  .course-actions { gap:12px; }
+}
