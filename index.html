@@ -124,6 +124,7 @@ footer{background:#101f32;color:white;padding:54px 0 22px}.footer-grid{display:g
   window.open(url,'_blank','noopener,noreferrer');
  });
  Object.values(fields).forEach(input=>input.addEventListener('input',()=>{const key=input.id==='full-name'?'name':input.id==='phone'?'phone':'course';document.getElementById('field-'+key).classList.remove('invalid')}));
+ fetch('assets/jan-law-original-logo.b64').then(r=>{if(!r.ok)throw new Error('logo asset unavailable');return r.text()}).then(encoded=>{const src='data:image/png;base64,'+encoded.trim();document.querySelectorAll('#brand-logo,.footer-logo').forEach(img=>{img.src=src})}).catch(()=>{document.querySelectorAll('#brand-logo,.footer-logo').forEach(img=>{img.style.display='none'})});
  document.documentElement.classList.add('js-ready');
  if('IntersectionObserver' in window&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');io.unobserve(entry.target)}}),{threshold:.08});document.querySelectorAll('.reveal').forEach(el=>io.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'))}
 })();
