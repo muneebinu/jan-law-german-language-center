@@ -110,7 +110,7 @@ test("homepage uses a locally hosted instructor photo and a factual course previ
 });
 
 test("homepage has no dead in-page navigation targets or removed filler sections", () => {
-  const ids = new Set([...html.matchAll(/\\bid="([^"]+)"/g)].map((match) => match[1]));
+  const ids = new Set([...html.matchAll(/\bid="([^"]+)"/g)].map((match) => match[1]));
   const targets = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
   for (const target of targets) assert.ok(ids.has(target), `Missing in-page target: ${target}`);
   assert.doesNotMatch(html, /id="why"|id="pathway"|class="section experiences"/);
