@@ -14,7 +14,10 @@ test("homepage has essential document metadata", () => {
   assert.match(html, /^<!doctype html>/i);
   assert.match(html, /<html lang="en">/i);
   assert.match(html, /<title>\s*[^<]+\s*<\/title>/i);
-  assert.match(html, /<meta name="description" content="[^"]+"/i);
+  const descriptionTag = [...html.matchAll(/<meta\\b[\\s\\S]*?>/gi)].find(
+    (match) => /name="description"/i.test(match[0])
+  );
+  assert.ok(descriptionTag && /content="[^"]+"/i.test(descriptionTag[0]));
   assert.match(html, /<link rel="canonical" href="https:\/\//i);
 });
 
