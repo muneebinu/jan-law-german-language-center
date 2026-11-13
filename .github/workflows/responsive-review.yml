@@ -1,0 +1,35 @@
+name: Responsive before-and-after review
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install browser
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Prepare original version
+        run: git worktree add --detach /tmp/jan-law-before 8e83fae03f32810f306b486e96fb4376e90a29ba
+      - name: Capture before and after screenshots and test responsive widths
+        run: node scripts/responsive-review.mjs
+      - name: Upload screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: jan-law-light-cleanup-before-after
+          path: review-screenshots/
+          if-no-files-found: error
+          retention-days: 14
