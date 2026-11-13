@@ -1941,3 +1941,44 @@ footer {
     padding:23px
   }
 }
+
+
+/* Curriculum responsive balance refinements */
+.curriculum-grid {
+  align-items:stretch;
+  row-gap:20px
+}
+.curriculum-card {
+  min-width:0;
+  overflow-wrap:anywhere
+}
+.curriculum-block ul {
+  padding-left:19px
+}
+.curriculum-block li {
+  padding-left:3px
+}
+.curriculum-skills {
+  margin-top:28px
+}
+@media(max-width:900px) and (min-width:621px) {
+  .curriculum-card:last-child {
+    width:calc((100% - 18px)/2);
+    justify-self:center
+  }
+}
+@media(max-width:620px) {
+  .curriculum-grid {
+    gap:16px
+  }
+  .curriculum-card:last-child {
+    width:auto;
+    justify-self:stretch
+  }
+  .curriculum-skills {
+    margin-top:20px
+  }
+  .curriculum-skill-list {
+    gap:15px
+  }
+}
