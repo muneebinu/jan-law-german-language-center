@@ -198,7 +198,7 @@ header {
   height:72px;
   object-fit:contain;
   object-position:left center;
-  visibility:hidden
+  visibility:visible
 }
 .navlinks {
   display:flex;
@@ -1257,7 +1257,7 @@ footer {
   background:var(--cream);
   border-radius:9px;
   padding:5px;
-  visibility:hidden
+  visibility:visible
 }
 .footer-about p {
   font-size:12px;
