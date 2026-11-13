@@ -36,7 +36,7 @@ This is a real-world website project built to present the institute, explain its
 ## Features
 
 - Responsive layouts for desktop, tablet and mobile screens.
-- Dedicated sections for the institute, courses, learning approach, instructor, admissions, FAQs, location and contact.
+- Dedicated sections for the institute, courses, curriculum, instructor, admissions, FAQs, location and contact.
 - Course information and fee presentation for German A1, A2 and B1.
 - Admission enquiry form with client-side validation and a WhatsApp handoff.
 - Separate office and instructor WhatsApp contact routes.
@@ -45,6 +45,13 @@ This is a real-world website project built to present the institute, explain its
 - Search metadata, canonical URL, Open Graph metadata and structured data.
 - Custom favicon, web app manifest, sitemap, robots file and not-found page.
 - No front-end framework or runtime package dependencies.
+
+## Design and content decisions
+
+- Lead with the institute's real location, in-person format, course levels and published fees.
+- Keep the course curriculum detailed while avoiding repeated course descriptions in every section.
+- Use concise visitor-facing language and keep operational details, such as current class times, available through direct enquiry when they change.
+- Apply relevant Stageshow craft principles to the page layout: deliberate hierarchy, limited decorative clutter, readable content at phone width and a separate mobile layout. The project remains a semantic HTML/CSS/vanilla JavaScript website; it does not install the Stageshow React demo kit or create faux product UI.
 
 ## Technology
 
