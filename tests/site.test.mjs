@@ -68,19 +68,28 @@ test("embedded JSON-LD is valid JSON", () => {
   assert.ok(data.some((item) => item["@type"] === "FAQPage"));
 });
 
-test("published course prices are consistent", () => {
-  for (const [level, fee] of [["A1", "35,000"], ["A2", "40,000"], ["B1", "50,000"]]) {
+test("published first-batch course prices and regular fees are consistent", () => {
+  const courses = [
+    ["A1", "30000", "30,000", "35,000"],
+    ["A2", "35000", "35,000", "40,000"],
+    ["B1", "45000", "45,000", "50,000"]
+  ];
+  for (const [level, offerPrice, firstBatchFee, regularFee] of courses) {
     assert.ok(html.includes(`German ${level}`), `Missing ${level} course content`);
-    assert.ok(html.includes(`PKR ${fee}`), `Missing visible ${level} fee`);
+    assert.ok(html.includes(`PKR ${firstBatchFee}`), `Missing first-batch ${level} fee`);
+    assert.ok(html.includes(`PKR ${regularFee}`), `Missing regular ${level} fee`);
   }
+  assert.match(html, /FIRST BATCH SPECIAL OFFER/);
+  assert.match(html, /first batch only/i);
   const organization = JSON.parse(
     [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi)][0][1]
   );
   const offers = organization.hasOfferCatalog.itemListElement;
-  assert.deepEqual(
-    offers.map((offer) => offer.price),
-    ["35000", "40000", "50000"]
-  );
+  assert.deepEqual(offers.map((offer) => offer.price), courses.map((course) => course[1]));
+  for (const [index, offer] of offers.entries()) {
+    assert.match(offer.description, /first-batch introductory fee only/i);
+    assert.ok(offer.description.includes(courses[index][3]), `Missing regular fee for ${courses[index][0]} in structured data`);
+  }
 });
 
 test("contact links include the confirmed office and instructor WhatsApp numbers", () => {
