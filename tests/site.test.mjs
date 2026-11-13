@@ -169,5 +169,5 @@ test("light cleanup preserves the existing design while simplifying content", ()
   assert.ok(html.includes("Fees and durations are confirmed with the center"));
   assert.doesNotMatch(html, /Goethe-Institut|ÖSD|Certificate arrangements have not been confirmed|is presented as an official/);
   assert.ok(html.includes('src="assets/muneeb.jpg"'));
-  assert.doesNotMatch(html, /Fluentio-Academia|☰|↗|⌖|▤|✎/);
+  assert.doesNotMatch(html, /Fluentio-Academia|☰|⌖|▤|✎/); // Direction arrows are intentional link cues.
 });
