@@ -2138,3 +2138,41 @@ footer {
   .btn, .nav-apply, .contact-chip { min-height:48px; }
   .course-actions { gap:12px; }
 }
+
+/* Keep the native details summary consistent with the existing curriculum cards. */
+.curriculum details.curriculum-card { padding:0; }
+.curriculum details.curriculum-card > summary.curriculum-summary {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  justify-content:initial;
+  min-height:88px;
+  padding:22px 24px;
+  gap:8px 12px;
+}
+.curriculum details.curriculum-card > summary.curriculum-summary::after {
+  position:absolute;
+  right:24px;
+  bottom:15px;
+  margin:0;
+  line-height:1;
+}
+.whatsapp-float.is-hidden {
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+@media(max-width:620px) {
+  .whatsapp-float {
+    right:14px;
+    bottom:14px;
+    width:52px;
+    height:52px;
+  }
+  .whatsapp-float span { display:none; }
+  .curriculum details.curriculum-card > summary.curriculum-summary { padding:20px; }
+  .curriculum details.curriculum-card > summary.curriculum-summary::after {
+    right:20px;
+    bottom:13px;
+  }
+}
