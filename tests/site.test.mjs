@@ -149,3 +149,16 @@ test("privacy copy explains the WhatsApp handoff in visitor language", () => {
   assert.match(html, /press Send in WhatsApp/);
   assert.doesNotMatch(html, /does not submit or store admissions forms in a database/i);
 });
+
+test("light cleanup preserves the existing design while simplifying content", () => {
+  assert.equal((html.match(/<details class="curriculum-card/g) || []).length, 3);
+  assert.doesNotMatch(html, /class="course-card featured/);
+  assert.equal((html.match(/Enquire on WhatsApp/g) || []).length, 3);
+  assert.doesNotMatch(html, /Apply for A1|Apply for A2|Apply for B1/);
+  assert.doesNotMatch(html, /about-panel|>GERMAN</);
+  assert.match(html, /German level:<\\/b> B2/);
+  assert.match(html, /Fees and durations are confirmed with the center/);
+  assert.doesNotMatch(html, /Goethe-Institut|ÖSD|Certificate arrangements have not been confirmed|is presented as an official/);
+  assert.match(html, /src="assets\\/muneeb\\.jpg"/);
+  assert.doesNotMatch(html, /Fluentio-Academia\\/assets\\/muneeb\\.jpg|☰|↗|⌖|▤|✎/);
+});
