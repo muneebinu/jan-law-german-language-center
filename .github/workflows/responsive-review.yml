@@ -1,4 +1,4 @@
-name: Responsive before-and-after review
+name: Responsive and Lighthouse design review
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  screenshots:
+  review:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,18 +18,39 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install browser
+      - name: Install browser and review tools
         run: |
-          npm install --no-save playwright
+          npm install --no-save playwright lighthouse http-server
           npx playwright install --with-deps chromium
       - name: Prepare original version
         run: git worktree add --detach /tmp/jan-law-before 8e83fae03f32810f306b486e96fb4376e90a29ba
       - name: Capture before and after screenshots and test responsive widths
         run: node scripts/responsive-review.mjs
-      - name: Upload screenshots
+      - name: Start local website for Lighthouse
+        run: |
+          npx http-server . -p 8080 -s > /tmp/jan-law-server.log 2>&1 &
+          for attempt in $(seq 1 20); do
+            if curl --silent --fail http://127.0.0.1:8080/ > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          curl --silent --fail http://127.0.0.1:8080/ > /dev/null
+      - name: Run Lighthouse mobile audit
+        run: |
+          export CHROME_PATH="$(find "$HOME/.cache/ms-playwright" -type f -name chrome | head -n 1)"
+          test -n "$CHROME_PATH"
+          npx lighthouse http://127.0.0.1:8080/ \
+            --only-categories=performance,accessibility \
+            --chrome-flags="--headless --no-sandbox" \
+            --output=json \
+            --output-path=./review-screenshots/lighthouse-mobile.json \
+            --quiet
+          node -e "const r=require('./review-screenshots/lighthouse-mobile.json'); for (const k of ['performance','accessibility']) console.log(k+': '+Math.round(r.categories[k].score*100)+'/100')"
+      - name: Upload screenshots and Lighthouse report
         uses: actions/upload-artifact@v4
         with:
-          name: jan-law-light-cleanup-before-after
+          name: jan-law-design-review
           path: review-screenshots/
           if-no-files-found: error
           retention-days: 14
