@@ -120,7 +120,7 @@ h1 em{color:var(--orange)}
 @media(max-width:390px){.location-landmarks{grid-template-columns:1fr}}
 
 
-/* JAN LAW — clean, precise visual refresh */
+/* JAN LAW clean, precise visual refresh */
 :root{
   --orange:#E43D12;
   --orange-deep:#B52E0B;
