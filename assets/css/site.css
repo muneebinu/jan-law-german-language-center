@@ -392,28 +392,6 @@ header {
   font-weight:900;
   margin-right:7px
 }
-.quick-strip {
-  background:var(--yellow);
-  padding:15px 0
-}
-.quick-inner {
-  display:flex;
-  justify-content:space-between;
-  gap:16px;
-  flex-wrap:wrap;
-  align-items:center
-}
-.quick-inner span {
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  color:var(--navy)
-}
-.quick-inner strong {
-  font:600 18px "Playfair Display",serif;
-  color:var(--navy)
-}
 .about-grid {
   display:grid;
   grid-template-columns:1.05fr .95fr;
@@ -475,30 +453,6 @@ header {
 }
 .about-contact>a:hover b {
   color:var(--orange)
-}
-.about-points {
-  margin-top:26px;
-  border-top:1px solid var(--line)
-}
-.about-point {
-  display:flex;
-  gap:16px;
-  padding:15px 0;
-  border-bottom:1px solid var(--line)
-}
-.about-point b {
-  font:italic 600 24px "Playfair Display",serif;
-  color:var(--orange)
-}
-.about-point strong {
-  display:block;
-  color:var(--navy);
-  font-size:14px
-}
-.about-point small {
-  display:block;
-  color:var(--muted);
-  font-size:12px
 }
 .about-panel {
   min-height:385px;
@@ -629,10 +583,6 @@ header {
 }
 .featured .course-label {
   color:var(--yellow)
-}
-.course-number {
-  font:italic 600 30px "Playfair Display",serif;
-  color:#c8bba9
 }
 .course-card h3 {
   font-size:29px;
@@ -1585,19 +1535,12 @@ footer {
   .hero-actions .btn {
     width:100%
   }
-  .quick-inner {
-    justify-content:center;
-    text-align:center
-  }
-  .quick-inner span {
-    width:100%
-  }
-  .about-panel {
+.about-panel {
     min-height:300px;
     padding:28px
   }
   .about-panel .word {
-    font-size:68px
+    font-size:clamp(3rem,10vw,5.1rem)
   }
   .benefit-grid,.course-grid,.curriculum-grid {
     grid-template-columns:1fr
