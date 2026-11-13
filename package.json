@@ -1,0 +1,13 @@
+{
+  "name": "jan-law-german-language-center",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Responsive static website for Jan Law German Language Center in Swat, Pakistan.",
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check assets/js/site.js && node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
