@@ -98,3 +98,21 @@ test("responsive and reduced-motion styling is present", () => {
 test("main source files do not contain em dashes or en dashes", () => {
   assert.doesNotMatch(html + css + js, /[—–]/);
 });
+
+
+test("homepage uses a locally hosted instructor photo and a factual course preview", () => {
+  assert.match(html, /src="assets\/muneeb\.jpg"/);
+  assert.doesNotMatch(html, /Fluentio-Academia\/assets\/muneeb\.jpg/);
+  for (const [level, fee] of [["A1", "35,000"], ["A2", "40,000"], ["B1", "50,000"]]) {
+    assert.match(html, new RegExp(`preview-level">\\s*${level}`));
+    assert.ok(html.includes(fee), `Missing ${level} preview fee`);
+  }
+});
+
+test("homepage has no dead in-page navigation targets or removed filler sections", () => {
+  const ids = new Set([...html.matchAll(/\\bid="([^"]+)"/g)].map((match) => match[1]));
+  const targets = [...html.matchAll(/href="#([^"]+)"/g)].map((match) => match[1]);
+  for (const target of targets) assert.ok(ids.has(target), `Missing in-page target: ${target}`);
+  assert.doesNotMatch(html, /id="why"|id="pathway"|class="section experiences"/);
+  assert.doesNotMatch(html, /is presented as|Certificate arrangements have not been confirmed|German proficiency is stated as/);
+});
