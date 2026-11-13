@@ -14,11 +14,10 @@ test("homepage has essential document metadata", () => {
   assert.match(html, /^<!doctype html>/i);
   assert.match(html, /<html lang="en">/i);
   assert.match(html, /<title>\s*[^<]+\s*<\/title>/i);
-  const descriptionTag = [...html.matchAll(/<meta\\b[\\s\\S]*?>/gi)].find(
-    (match) => /name="description"/i.test(match[0])
-  );
-  assert.ok(descriptionTag && /content="[^"]+"/i.test(descriptionTag[0]));
-  assert.match(html, /<link rel="canonical" href="https:\/\//i);
+  assert.ok(html.includes('name="description"'));
+  assert.ok(html.includes('content="Learn German in Swat'));
+  assert.ok(html.includes('rel="canonical"'));
+  assert.ok(html.includes('href="https://muneebinu.github.io/jan-law-german-language-center/"'));
 });
 
 test("styles and application JavaScript are kept outside the HTML", () => {
