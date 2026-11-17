@@ -5,7 +5,7 @@ The official website for **Jan Law German Language Center**, a German language t
 - **Live website:** https://muneebinu.github.io/jan-law-german-language-center/
 - **Repository:** https://github.com/muneebinu/jan-law-german-language-center
 - **Organization:** Jan Law Students Consultant Ltd
-- **Location:** Kuza Bandai, Kuza Bandai, Swat, Khyber Pakhtunkhwa 19060, Pakistan.
+- **Location:** Kuza Bandai, Swat, Khyber Pakhtunkhwa 19060, Pakistan.
 
 <p align="center">
   <img src="assets/og-image.svg" alt="Jan Law German Language Center brand artwork" width="100%">
@@ -75,7 +75,7 @@ The instructor section describes the teaching focus as German grammar, vocabular
 
 - **Office WhatsApp:** [+92 346 6996640](https://wa.me/923466996640)
 - **Instructor WhatsApp:** [+92 318 9150911](https://wa.me/923189150911)
-- **Address:** Kuza Bandai, Kuza Bandai, Swat, Khyber Pakhtunkhwa 19060, Pakistan.
+- **Address:** Kuza Bandai, Swat, Khyber Pakhtunkhwa 19060, Pakistan.
 
 ### How the enquiry form works
 
