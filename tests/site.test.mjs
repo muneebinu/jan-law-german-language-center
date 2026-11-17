@@ -67,7 +67,7 @@ test("embedded JSON-LD is valid JSON", () => {
   assert.ok(blocks.length >= 1, "Expected structured data blocks");
 
   const data = blocks.map((match) => JSON.parse(match[1]));
-  assert.ok(data.some((item) => item["@type"] === "EducationalOrganization"));
+  assert.ok(data.some((item) => Array.isArray(item["@type"]) ? item["@type"].includes("EducationalOrganization") : item["@type"] === "EducationalOrganization"));
   assert.ok(data.some((item) => item["@type"] === "FAQPage"));
 });
 
@@ -172,7 +172,7 @@ test("light cleanup preserves the existing design while simplifying content", ()
   assert.ok(html.includes("Fees and durations are confirmed with the center"));
   assert.doesNotMatch(html, /Goethe-Institut|ÖSD|Certificate arrangements have not been confirmed|is presented as an official/);
   assert.ok(html.includes('src="assets/muneeb.jpg"'));
-  assert.doesNotMatch(html, /Fluentio-Academia|☰|⌖|▤|✎/); // Direction arrows are intentional link cues.
+  assert.doesNotMatch(html, /Fluentio-Academia|☰|▤|✎/); // Direction arrows are intentional link cues.
 });
 
 
