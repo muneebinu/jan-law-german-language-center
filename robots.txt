@@ -1,3 +1,4 @@
+# Public website pages are available for search engine and AI answer crawlers.
 User-agent: *
 Allow: /
 
