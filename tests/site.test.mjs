@@ -108,7 +108,7 @@ test("responsive and reduced-motion styling is present", () => {
 });
 
 test("main source files do not contain em dashes or en dashes", () => {
-  assert.doesNotMatch([html, css, js, notFound, llms, ...coursePages].join("\\n"), /[\\u2014\\u2013]/);
+  assert.doesNotMatch([html, css, js, notFound, llms, ...coursePages].join("\\n"), /[\u2014\u2013]/);
 });
 
 
