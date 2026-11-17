@@ -1,11 +1,11 @@
 # Jan Law German Language Center
 
-The official website for **Jan Law German Language Center**, a German language teaching center in Dherai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
+The official website for **Jan Law German Language Center**, a German language teaching center in Derai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
 
 - **Live website:** https://muneebinu.github.io/jan-law-german-language-center/
 - **Repository:** https://github.com/muneebinu/jan-law-german-language-center
 - **Organization:** Jan Law Students Consultant Ltd
-- **Location:** Next to Zubair Hospital, opposite Dherai Ground, Dherai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
+- **Location:** Opposite Derai Ground, Derai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
 
 <p align="center">
   <img src="assets/og-image.svg" alt="Jan Law German Language Center brand artwork" width="100%">
@@ -75,7 +75,7 @@ The instructor section describes the teaching focus as German grammar, vocabular
 
 - **Office WhatsApp:** [+92 346 6996640](https://wa.me/923466996640)
 - **Instructor WhatsApp:** [+92 318 9150911](https://wa.me/923189150911)
-- **Address:** Next to Zubair Hospital, opposite Dherai Ground, Dherai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
+- **Address:** Opposite Derai Ground, Derai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
 
 ### How the enquiry form works
 
@@ -212,3 +212,15 @@ For additional development guidance, see [CONTRIBUTING.md](CONTRIBUTING.md), [AG
 ## License
 
 No open-source license has been added to this repository. Unless the owner adds a license, the source code is not automatically available for reuse, redistribution or modification by others.
+
+
+## Search visibility
+
+The website includes dedicated, indexable landing pages for German A1, A2 and B1 courses in Swat, a local guide to choosing German classes, canonical URLs, Open Graph metadata, Schema.org structured data, an XML sitemap, robots.txt and an `llms.txt` public-information summary for AI answer tools.
+
+- [German A1 course in Swat](https://muneebinu.github.io/jan-law-german-language-center/german-a1-course-in-swat/)
+- [German A2 course in Swat](https://muneebinu.github.io/jan-law-german-language-center/german-a2-course-in-swat/)
+- [German B1 course in Swat](https://muneebinu.github.io/jan-law-german-language-center/german-b1-course-in-swat/)
+- [Guide to German classes in Swat](https://muneebinu.github.io/jan-law-german-language-center/learn-german-in-swat/)
+
+After deployment, submit the sitemap in Google Search Console and inspect each important URL. The `llms.txt` file is an optional machine-readable summary, not a Google ranking signal or a guarantee of AI citations.
