@@ -45,3 +45,36 @@
 .seo-footer a{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:850px){.seo-course-grid,.seo-level-grid{grid-template-columns:1fr 1fr}.seo-facts{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.seo-header-inner{align-items:flex-start;padding-top:14px;padding-bottom:14px;flex-direction:column}.seo-header-inner nav{gap:12px}.seo-course-grid,.seo-level-grid,.seo-facts{grid-template-columns:1fr}.seo-hero{padding-top:20px}.seo-lead{font-size:17px}.seo-content-section h2{font-size:26px}.seo-cta{padding:22px}}
+
+
+/* Keep SEO course-page navigation in normal document flow.
+   The main site stylesheet gives all header elements a fixed sticky height;
+   these pages need a content-sized header, especially on small screens. */
+.seo-header{
+  height:auto;
+  min-height:82px;
+  position:relative;
+  top:auto;
+  z-index:10;
+}
+.seo-header-inner{
+  min-height:82px;
+}
+.seo-header-inner nav .btn{
+  min-height:40px;
+  padding:9px 13px;
+  font-size:14px;
+}
+@media(max-width:560px){
+  .seo-header-inner{
+    min-height:0;
+  }
+  .seo-header-inner nav{
+    width:100%;
+    gap:8px 14px;
+    align-items:center;
+  }
+  .seo-header-inner nav>a:not(.btn){
+    font-size:13px;
+  }
+}
