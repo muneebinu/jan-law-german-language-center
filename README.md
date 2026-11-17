@@ -5,7 +5,7 @@ The official website for **Jan Law German Language Center**, a German language t
 - **Live website:** https://muneebinu.github.io/jan-law-german-language-center/
 - **Repository:** https://github.com/muneebinu/jan-law-german-language-center
 - **Organization:** Jan Law Students Consultant Ltd
-- **Location:** Kuza Bandai, Swat, Khyber Pakhtunkhwa 19060, Pakistan.
+- **Location:** See the exact [Google Maps pin](https://maps.app.goo.gl/SWFAG8kZwn7GhL9eA).
 
 <p align="center">
   <img src="assets/og-image.svg" alt="Jan Law German Language Center brand artwork" width="100%">
