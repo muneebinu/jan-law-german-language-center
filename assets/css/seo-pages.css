@@ -180,3 +180,28 @@ body.seo-page .seo-header-inner nav>a.btn{
     padding:7px 12px;
   }
 }
+
+
+/* The global site stylesheet makes every HTML header sticky and fixed-height.
+   The course hero is also a semantic header, so explicitly reset it here. */
+body.seo-page article>header.seo-hero{
+  display:block;
+  position:static;
+  inset:auto;
+  float:none;
+  width:100%;
+  height:auto;
+  min-height:0;
+  max-height:none;
+  overflow:visible;
+  z-index:auto;
+  padding:36px 0 34px;
+  background:transparent;
+  border:0;
+}
+body.seo-page article>header.seo-hero h1{
+  position:static;
+  height:auto;
+  margin:12px 0 18px;
+  line-height:1.06;
+}
