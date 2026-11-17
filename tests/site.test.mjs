@@ -9,13 +9,16 @@ const html = await readFile(path.join(root, "index.html"), "utf8");
 const css = await readFile(path.join(root, "assets/css/site.css"), "utf8");
 const js = await readFile(path.join(root, "assets/js/site.js"), "utf8");
 const notFound = await readFile(path.join(root, "404.html"), "utf8");
+const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
+const llms = await readFile(path.join(root, "llms.txt"), "utf8");
+const coursePages = await Promise.all(["german-a1-course-in-swat","german-a2-course-in-swat","german-b1-course-in-swat","learn-german-in-swat"].map((slug) => readFile(path.join(root, slug, "index.html"), "utf8")));
 
 test("homepage has essential document metadata", () => {
   assert.match(html, /^<!doctype html>/i);
   assert.match(html, /<html lang="en">/i);
   assert.match(html, /<title>\s*[^<]+\s*<\/title>/i);
   assert.ok(html.includes('name="description"'));
-  assert.ok(html.includes('content="Learn German in Swat'));
+  assert.ok(html.includes('content="Looking for German classes in Swat'));
   assert.ok(html.includes('rel="canonical"'));
   assert.ok(html.includes('href="https://muneebinu.github.io/jan-law-german-language-center/"'));
 });
@@ -170,4 +173,42 @@ test("light cleanup preserves the existing design while simplifying content", ()
   assert.doesNotMatch(html, /Goethe-Institut|ÖSD|Certificate arrangements have not been confirmed|is presented as an official/);
   assert.ok(html.includes('src="assets/muneeb.jpg"'));
   assert.doesNotMatch(html, /Fluentio-Academia|☰|⌖|▤|✎/); // Direction arrows are intentional link cues.
+});
+
+
+test("local business name, address and contact details are consistent", () => {
+  assert.match(html, /Jan Law German Language Center/);
+  assert.match(html, /Derai, Tehsil Kabal, Swat/);
+  assert.match(html, /Opposite Derai Ground/);
+  assert.match(html, /wa\\.me\\/923189150911/);
+  assert.match(html, /wa\\.me\\/923466996640/);
+  assert.doesNotMatch(html, /Dherai|Zubair Hospital/);
+  assert.match(llms, /Opposite Derai Ground/);
+  assert.match(llms, /German A1/);
+});
+
+test("course landing pages have unique titles, canonicals and valid structured data", () => {
+  const slugs = ["german-a1-course-in-swat","german-a2-course-in-swat","german-b1-course-in-swat","learn-german-in-swat"];
+  for (const [index, page] of coursePages.entries()) {
+    assert.match(page, /<title>[^<]+<\\/title>/);
+    assert.match(page, /name="description"/);
+    assert.match(page, /rel="canonical"/);
+    assert.match(page, /<h1>/);
+    assert.match(page, /Derai, Tehsil Kabal, Swat/);
+    assert.match(page, /Opposite Derai Ground/);
+    const blocks = [...page.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/gi)];
+    assert.equal(blocks.length, 1, slugs[index]);
+    const data = JSON.parse(blocks[0][1]);
+    assert.ok(Array.isArray(data["@graph"]));
+    assert.ok(data["@graph"].some((item) => item["@type"] === "Course" || item["@type"] === "Article"));
+    assert.ok(data["@graph"].some((item) => item["@type"] === "BreadcrumbList"));
+  }
+});
+
+test("XML sitemap lists the homepage and all new SEO landing pages", () => {
+  for (const slug of ["german-a1-course-in-swat","german-a2-course-in-swat","german-b1-course-in-swat","learn-german-in-swat"]) {
+    assert.ok(sitemap.includes("/" + slug + "/"), "Missing sitemap URL: " + slug);
+  }
+  assert.match(sitemap, /<urlset/);
+  assert.match(sitemap, /<loc>https:\\/\\/muneebinu\\.github\\.io\\//);
 });
