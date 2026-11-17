@@ -1,0 +1,47 @@
+/* Shared styles for indexable course and local guide pages. */
+.seo-course-section{background:#fffdf9}
+.seo-course-grid,.seo-level-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.seo-course-card,.seo-level-grid article{padding:24px;border:1px solid #e8e1d7;border-radius:14px;background:#fff}
+.seo-course-level,.seo-level-grid article>span{display:block;color:#a72e0c;font-size:12px;font-weight:800;letter-spacing:.08em}
+.seo-course-card h3,.seo-level-grid h3{margin:12px 0 8px;font-size:22px;line-height:1.25}
+.seo-course-card p,.seo-level-grid p{color:#5b534d}
+.seo-course-card a,.seo-level-grid a{color:#a72e0c;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.seo-local-note{max-width:850px;margin:28px auto 0;color:#5b534d;text-align:center}
+.seo-guide-link{text-align:center;font-weight:800;margin-top:14px}
+.seo-guide-link a{color:#a72e0c;text-decoration:underline;text-underline-offset:4px}
+.seo-header{background:#fffdf9;border-bottom:1px solid #ebe9e1}
+.seo-header-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.seo-header-inner>a{display:flex;align-items:center}
+.seo-header-inner nav{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.seo-header-inner nav>a:not(.btn){font-size:14px;font-weight:700}
+.seo-main{padding:28px 0 76px}
+.seo-breadcrumb{display:flex;flex-wrap:wrap;gap:10px;color:#6b625b;font-size:13px;margin:0 0 30px}
+.seo-breadcrumb a{text-decoration:underline;text-underline-offset:3px}
+.seo-hero{max-width:900px;padding:36px 0 34px}
+.seo-eyebrow{color:#a72e0c;font-size:12px;font-weight:800;letter-spacing:.12em}
+.seo-hero h1{font-size:clamp(36px,6vw,62px);line-height:1.06;max-width:850px;margin:12px 0 18px}
+.seo-lead{max-width:760px;color:#5b534d;font-size:19px;line-height:1.7}
+.seo-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+.seo-facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:10px 0 46px}
+.seo-facts>div{padding:18px;border:1px solid #e8e1d7;border-radius:12px;background:#fff}
+.seo-facts span,.seo-facts small{display:block;color:#6b625b;font-size:13px}
+.seo-facts strong{display:block;margin-top:6px;font-size:17px}
+.seo-content-section{max-width:850px;margin:0 0 38px}
+.seo-content-section h2{font-size:30px;line-height:1.2;margin:0 0 14px}
+.seo-content-section h3{font-size:21px;margin:24px 0 8px}
+.seo-content-section p,.seo-content-section li{color:#514943;line-height:1.75}
+.seo-check-list{padding-left:22px}
+.seo-check-list li{padding:4px 0}
+.seo-faq details{border-bottom:1px solid #e8e1d7;padding:15px 0}
+.seo-faq summary{font-weight:800;cursor:pointer}
+.seo-table-wrap{overflow-x:auto}
+.seo-table{width:100%;border-collapse:collapse;background:#fff}
+.seo-table th,.seo-table td{padding:12px 14px;border:1px solid #e8e1d7;text-align:left;white-space:nowrap}
+.seo-table th{background:#f6f2ea}
+.seo-cta{margin:46px 0 0;padding:30px;border-radius:14px;background:#f6f2ea}
+.seo-cta h2{margin:0 0 10px;font-size:28px}
+.seo-footer{padding:32px 0;background:#211d1a;color:#fff}
+.seo-footer p{color:#e4ddd5}
+.seo-footer a{text-decoration:underline;text-underline-offset:4px}
+@media(max-width:850px){.seo-course-grid,.seo-level-grid{grid-template-columns:1fr 1fr}.seo-facts{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.seo-header-inner{align-items:flex-start;padding-top:14px;padding-bottom:14px;flex-direction:column}.seo-header-inner nav{gap:12px}.seo-course-grid,.seo-level-grid,.seo-facts{grid-template-columns:1fr}.seo-hero{padding-top:20px}.seo-lead{font-size:17px}.seo-content-section h2{font-size:26px}.seo-cta{padding:22px}}
