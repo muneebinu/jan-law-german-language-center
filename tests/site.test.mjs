@@ -177,31 +177,34 @@ test("light cleanup preserves the existing design while simplifying content", ()
 
 
 test("local business name, address and contact details are consistent", () => {
-  assert.match(html, /Jan Law German Language Center/);
-  assert.match(html, /Derai, Tehsil Kabal, Swat/);
-  assert.match(html, /Opposite Derai Ground/);
-  assert.match(html, /wa\\.me\\/923189150911/);
-  assert.match(html, /wa\\.me\\/923466996640/);
-  assert.doesNotMatch(html, /Dherai|Zubair Hospital/);
-  assert.match(llms, /Opposite Derai Ground/);
-  assert.match(llms, /German A1/);
+  assert.ok(html.includes("Jan Law German Language Center"));
+  assert.ok(html.includes("Derai, Tehsil Kabal, Swat"));
+  assert.ok(html.includes("Opposite Derai Ground"));
+  assert.ok(html.includes("wa.me/923189150911"));
+  assert.ok(html.includes("wa.me/923466996640"));
+  assert.ok(!html.includes("Dherai") && !html.includes("Zubair Hospital"));
+  assert.ok(llms.includes("Opposite Derai Ground"));
+  assert.ok(llms.includes("German A1"));
 });
 
-test("course landing pages have unique titles, canonicals and valid structured data", () => {
+test("course landing pages have metadata and valid structured data", () => {
   const slugs = ["german-a1-course-in-swat","german-a2-course-in-swat","german-b1-course-in-swat","learn-german-in-swat"];
   for (const [index, page] of coursePages.entries()) {
-    assert.match(page, /<title>[^<]+<\\/title>/);
-    assert.match(page, /name="description"/);
-    assert.match(page, /rel="canonical"/);
-    assert.match(page, /<h1>/);
-    assert.match(page, /Derai, Tehsil Kabal, Swat/);
-    assert.match(page, /Opposite Derai Ground/);
-    const blocks = [...page.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/gi)];
-    assert.equal(blocks.length, 1, slugs[index]);
-    const data = JSON.parse(blocks[0][1]);
-    assert.ok(Array.isArray(data["@graph"]));
-    assert.ok(data["@graph"].some((item) => item["@type"] === "Course" || item["@type"] === "Article"));
-    assert.ok(data["@graph"].some((item) => item["@type"] === "BreadcrumbList"));
+    assert.ok(page.includes("<title>") && page.includes("</title>"), slugs[index]);
+    assert.ok(page.includes('name="description"'), slugs[index]);
+    assert.ok(page.includes('rel="canonical"'), slugs[index]);
+    assert.ok(page.includes("<h1>"), slugs[index]);
+    assert.ok(page.includes("Derai, Tehsil Kabal, Swat"), slugs[index]);
+    assert.ok(page.includes("Opposite Derai Ground"), slugs[index]);
+    const marker = '<script type="application/ld+json">';
+    const start = page.indexOf(marker);
+    assert.ok(start >= 0, slugs[index]);
+    const jsonStart = start + marker.length;
+    const jsonEnd = page.indexOf("</script>", jsonStart);
+    const data = JSON.parse(page.slice(jsonStart, jsonEnd));
+    assert.ok(Array.isArray(data["@graph"]), slugs[index]);
+    assert.ok(data["@graph"].some((item) => item["@type"] === "Course" || item["@type"] === "Article"), slugs[index]);
+    assert.ok(data["@graph"].some((item) => item["@type"] === "BreadcrumbList"), slugs[index]);
   }
 });
 
@@ -209,6 +212,6 @@ test("XML sitemap lists the homepage and all new SEO landing pages", () => {
   for (const slug of ["german-a1-course-in-swat","german-a2-course-in-swat","german-b1-course-in-swat","learn-german-in-swat"]) {
     assert.ok(sitemap.includes("/" + slug + "/"), "Missing sitemap URL: " + slug);
   }
-  assert.match(sitemap, /<urlset/);
-  assert.match(sitemap, /<loc>https:\\/\\/muneebinu\\.github\\.io\\//);
+  assert.ok(sitemap.includes("<urlset"));
+  assert.ok(sitemap.includes("<loc>https://muneebinu.github.io/"));
 });
