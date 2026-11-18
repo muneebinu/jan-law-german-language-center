@@ -1,8 +1,8 @@
 # Jan Law website project guidance
 
 Brand: Jan Law German Language Center. Tagline: A Path to Excellence.
-Location: Dherai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
-Landmark: next to Zubair Hospital, opposite Dherai Ground.
+Location: Derai, Tehsil Kabal, Swat, Khyber Pakhtunkhwa, Pakistan.
+Landmark: Opposite Derai Ground, next to Zubair College.
 Courses: German A1, A2 and B1.
 Palette: #172b35, #fff8ee, #f26a1b, #ffc83d, #dcefff.
 
